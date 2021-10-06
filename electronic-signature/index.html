@@ -37,7 +37,6 @@
       //输出签名图片
       function savePic() {
         var $sigdiv = $("#canvas");
-        console.log($sigdiv.jSignature("getData", "native"));
         var length = $sigdiv.jSignature("getData", "native").length;
 
         //判断是否有签名
@@ -45,13 +44,8 @@
           alert("请先签名再提交", { icon: 5 });
           return;
         }
-        //因为需要保存为图片，此处不用
-        //var datapair = $sigdiv.jSignature("getData", "svgbase64")；
         //采用图片形式
         var datapair = $sigdiv.jSignature("getData");
-        //若采用svg使用
-        //var i = new Image();
-        //i.src = "data:" + datapair[0] + "," + datapair[1];
         $("#canvas").html("<img src='" + datapair + "'>");
         $("#canvasBtn").text("重写");
         $("#canvasBtn").attr("onclick", "getCanvas()");

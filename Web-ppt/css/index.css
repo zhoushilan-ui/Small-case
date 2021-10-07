@@ -1,0 +1,18 @@
+.ppt-title,.ppt-img{
+    writing-mode: tb-rl;
+    letter-spacing:0.3em !important;
+    line-height:10px  !important;
+    font-weight: normal !important;
+    font-family: cursive !important;
+    margin: 0 auto !important;
+}
+
+.ppt-img{
+    writing-mode:horizontal-tb !important;
+}
+
+/* CSS */
+.make-it-pop {
+    filter: drop-shadow(0 0 10px purple);
+    
+  }

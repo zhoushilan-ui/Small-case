@@ -8,16 +8,24 @@
     />
     <title>reveal.js</title>
     <!-- reveal基本的css  -->
-    <link rel="stylesheet" href="./css/reveal.css" />
-    <!-- 引入黑色主题 -->
-    <link rel="stylesheet" href="./css/black.css" />
+    <link rel="stylesheet" href="./lib/reveal/dist/reveal.css" />
+    <!-- 引入淡蓝色主题 -->
+    <link rel="stylesheet" href="./lib/reveal/dist/theme/sky.css" />
     <!-- 用于显示代码高亮 -->
-    <link rel="stylesheet" href="./css/zenburn.css" />
+    <link rel="stylesheet" href="./lib/reveal/dist/reset.css" />
+    <!-- 引入样式 -->
+    <link rel="stylesheet" href="./css/index.css" />
+
+    <!-- 引入markdown -->
+    <script src="./lib/reveal/plugin/markdown/markdown.js"></script>
+    <!-- 引入数学方程式的插件MathJax -->
+    <script src="./lib/reveal/plugin/math/math.js"></script>
+
+    <link rel="stylesheet" href="./lib/reveal/plugin/highlight/monokai.css" />
   </head>
   <body>
     <!-- reveal基本的js，里面集成了一些转场动画 -->
-    <script src="./js/reveal.js"></script>
-
+    <script src="./lib/reveal/dist/reveal.js"></script>
     <!-- 这里省略引入css代码，记得加上 -->
     <div class="reveal">
       <!-- 所有的幻灯片都放在一个类为slides的div中 -->
@@ -25,39 +33,183 @@
         <!-- 每一个<section>块都生成一张单独ppt -->
         <section>
           <!-- ppt标题 -->
-          <h3>欢迎使用reveal.js网页版PPT</h3>
+          <h6 class="ppt-title">社团纳新啦</h6>
           <!-- ppt正文 -->
-          <p>
-            <small
-              >Presented by<a href="https://revealjs.com/"
-                >如何使用reveal.js</a
-              ></small
-            >
-          </p>
+          <!-- <div class="ppt-img">欢迎同学加入</div> -->
         </section>
         <!-- 第二页 -->
         <section>
           <!-- section中还可以包含section，放映的方式为向下放映 -->
-          <section>
-            <h2>Hello There</h2>
+          <section data-background="#A3EDF9">
+            <h5>社团的活动内容</h5>
             <!-- fragment类表示分条显示，当键盘按下?键时触发 -->
-            <p class="fragment">Today, we are gonna talk about the jQuery.</p>
+            <p class="fragment"></p>
             <!-- 添加一个图片链接 -->
-            <a class="fragment" href="http://jquery.com/download/">
+            <a
+              class="fragment"
+              target="_blank"
+              href="https://revealjs.com/backgrounds/"
+            >
               <img
                 width="240"
                 height="180"
-                data-src="images/jquery_logo.gif"
+                data-src="./images/502a166fa2cfb67722210bb0694fc722.gif"
                 alt="jquery_logo"
               />
             </a>
           </section>
-          <!-- 通过data-background熟悉可以设置幻灯片的背景颜色或者图片，甚至可以使用视频当作背景 -->
+
+          <section data-background="#D0F9A3">
+            <div style="margin: 0 auto">
+              <div>忆江南</div>
+              <div>【唐】白居易</div>
+              <div>江南好，风景旧曾谙。</div>
+              <div>日出江花红胜火， 春来江水绿如蓝。</div>
+              <div>能不忆江南?</div>
+              <div>江南忆，最忆是杭州。</div>
+              <div>山寺月中寻桂子， 郡亭枕上看潮头。</div>
+              <div>何日更重游?</div>
+              <div>江南忆，其次是吴宫。</div>
+              <div>吴娃双舞醉芙蓉。</div>
+              <div>早晚复相逢。</div>
+            </div>
+          </section>
+
           <section data-background="#dddddd">
-            <h2>But then, Believe me...</h2>
-            <p class="fragment">
-              You need some HTML,CSS and JavaScript skills to be able to use
-              jQuery effectively.
+            <div>蝶恋花·春景</div>
+            <div>【宋】苏轼</div>
+            <div>花褪残红青杏小。</div>
+            <div>燕子飞时，绿水人家绕。</div>
+            <div>枝上柳绵吹又少。</div>
+            <div>天涯何处无芳草！</div>
+            <div>墙里秋千墙外道。</div>
+            <div>墙外行人，墙里佳人笑。</div>
+            <div>笑渐不闻声渐悄。</div>
+            <div>多情却被无情恼。</div>
+          </section>
+          <section>
+            <img
+              width="240"
+              height="180"
+              data-src="./images/80d69422842599ec55dda95dcba9aee8.gif"
+              alt=""
+            />
+            <img
+              width="240"
+              height="180"
+              data-src="./images/112879c16a0d699ab06bd9b1fced3aff (1).gif"
+              alt="jquery_logo"
+            />
+            <h6>更多的内容...</h6>
+          </section>
+        </section>
+        <!--第三页 -->
+        <section data-auto-animate>
+          <h5 data-id="code-title">代码块</h5>
+          <section data-auto-animate>
+            <pre
+              data-id="code-animation"
+            ><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24">
+              //数组
+              let planets = [
+                { name: 'mars', diameter: 6779 },
+                { name: 'earth', diameter: 12742 },
+                { name: 'jupiter', diameter: 139820 }
+              ]
+            </code></pre>
+          </section>
+          <section data-auto-animate>
+            <pre
+              data-id="code-animation"
+            ><code  class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24">
+              let circumferenceReducer = ( c, planet ) => {
+                return c + planet.diameter * Math.PI;
+              }
+          
+              let planets = [
+                { name: 'mars', diameter: 6779 },
+                { name: 'earth', diameter: 12742 },
+                { name: 'jupiter', diameter: 139820 }
+              ]
+          
+              let c = planets.reduce( circumferenceReducer, 0 )
+            </code></pre>
+          </section>
+        </section>
+        <!-- 第四页 -->
+        <section>
+          <h5>在列表之间添加数据</h5>
+          <section data-auto-animate>
+            <ul>
+              <li>Mercury</li>
+              <li>Jupiter</li>
+              <li>Mars</li>
+            </ul>
+          </section>
+          <section data-auto-animate>
+            <ul>
+              <li>Mercury</li>
+              <li>Earth</li>
+              <li>Jupiter</li>
+              <li>Saturn</li>
+              <li>Mars</li>
+            </ul>
+          </section>
+        </section>
+        <!-- 第五页 -->
+        <section>
+          <section>
+            <h6>媒体查询</h6>
+            <video
+              data-autoplay
+              src="http://clips.vorwaerts-gmbh.de/big_buck_bunny.mp4"
+            ></video>
+          </section>
+          <!-- 延迟加载 -->
+          <section>
+            <h6>延迟加载</h6>
+            <iframe
+              data-src="https://hakim.se"
+              data-preload
+              width="600"
+              height="600"
+            ></iframe>
+          </section>
+        </section>
+        <!-- 第六页 -->
+        <section>
+          <section>
+            <h6>markdown文件使用</h6>
+            <p></p>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ## Slide 1
+              A paragraph with some text and a [link](http://hakim.se).
+              ---
+              ## Slide 2
+              ---
+              ## Slide 3
+            </textarea>
+          </section>
+          <section data-markdown>
+            <textarea data-template>
+              ```js [1-2|3|4]
+              let a = 1;
+              let b = 2;
+              let c = x => 1 + 2 + x;
+              c(3);
+              ```
+            </textarea>
+          </section>
+        </section>
+        <!-- 第七页 -->
+        <section>
+          <section>
+            <h6>显示数学方程式</h6>
+            <p>
+              \[\begin{aligned} \dot{x} &amp; = \sigma(y-x) \\ \dot{y} &amp; =
+              \rho x - y - xz \\ \dot{z} &amp; = -\beta z + xy \end{aligned} \]
             </p>
           </section>
         </section>
@@ -72,7 +224,36 @@
         center: true, // 是否在中间显示，默认为true
         // transition为页之间的切换动画，默认为slide，即水平滑动，这里我们改成zoom缩放试试
         transition: "zoom", // none/fade/slide(default)/convex/concave/zoom
+        //数学方程式
+        math: {
+          mathjax:
+            "https://cdn.jsdelivr.net/gh/mathjax/mathjax@2.7.8/MathJax.js",
+          config: "TeX-AMS_HTML-full",
+          // pass other options into `MathJax.Hub.Config()`
+          TeX: { Macros: { RR: "{\\bf R}" } },
+        },
+        plugins: [RevealMarkdown, RevealMath], //插件
+        // 是否循环演示
+        loop: false,
+        // 全局开启和关闭碎片
+        fragments: true,
+        // 标识当问号键被点击的时候是否应该显示一个帮助的覆盖层
+        help: true,
+        // 是否启用通过鼠标滚轮来导航幻灯片
+        mouseWheel: true,
+        //媒体
+        autoPlayMedia: true,
+        //触摸式导航
+        touch: true,
+        // 幻灯片标号
+        slideNumber: true,
+        showSlideNumber: "print",
       });
+
+      // 每 3 秒自动播放
+      Reveal.configure({ autoSlide: 3000 });
+
+      //打印pdf格式
     </script>
   </body>
 </html>

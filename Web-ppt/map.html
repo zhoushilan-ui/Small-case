@@ -1,0 +1,121 @@
+<html>
+  <head>
+    <title>map.js</title>
+  </head>
+  <!-- reveal基本的css  -->
+  <link rel="stylesheet" href="./lib/reveal/dist/reveal.css" />
+  <!-- 引入淡蓝色主题 -->
+  <link rel="stylesheet" href="./lib/reveal/dist/theme/sky.css" />
+  <!-- 用于显示代码高亮 -->
+  <link rel="stylesheet" href="./lib/reveal/dist/reset.css" />
+
+  <!-- 引入样式 -->
+  <link rel="stylesheet" href="./css/map.css" />
+  <script src="./lib/reveal/plugin/notes/notes.js"></script>
+  <script src="./lib/reveal/plugin/markdown/markdown.js"></script>
+
+  <!--三、引入高德地图的js-->
+  <script
+    type="text/javascript"
+    src="https://webapi.amap.com/maps?v=1.4.8&key=您申请的key值"
+  ></script>
+  <body>
+    <!-- reveal基本的js，里面集成了一些转场动画 -->
+    <script src="./lib/reveal/dist/reveal.js"></script>
+    <script src="./lib/reveal/plugin/"></script>
+    <div class="reveal">
+      <div class="slides">
+        <section>
+          <h6>nihao1</h6>
+        </section>
+        <section>
+          <!-- 添加地图 -->
+          <h6>显示地图</h6>
+          <!-- 一、新建一个容器 -->
+          <div id="container"></div>
+        </section>
+        <!-- <section data-notes="Something important">
+          <aside class="notes">Shhh, these are your private notes 📝</aside>
+        </section> -->
+        <section
+          data-transition="concave"
+          data-markdown="11.md"
+          data-separator="^\n\n\n"
+          data-separator-vertical="^\n\n"
+          data-separator-notes="^Note:"
+          data-charset="iso-8859-15"
+        >
+          <h6>markdown文件使用</h6>
+        </section>
+        <section data-markdown>
+          <textarea data-template>
+              ```js [1-2|3|4]
+              let a = 1;
+              let b = 2;
+              let c = x => 1 + 2 + x;
+              c(3);
+              ```
+            </textarea
+          >
+        </section>
+      </div>
+    </div>
+
+    <!-- 这里省略引入js代码，记得加上 -->
+    <script type="text/javascript">
+      //   let WaitForIt = {
+      //     id: "wait-for-it",
+      //     init: (deck) => {
+      //       return new Promise((resolve) => setTimeout(resolve, 3000));
+      //     },
+      //   };
+
+      //   let Toaster = {
+      //     id: "toaster",
+      //     init: (deck) => {
+      //       deck.addKeyBinding({ keyCode: 84, key: "T" }, () => {
+      //         deck.shuffle();
+      //         console.log("🍻");
+      //       });
+      //       return new Promise((resolve) => {
+      //         setTimeout(resolve, 3000);
+      //       });
+      //     },
+      //   };
+
+      //   Reveal.initialize({ plugins: [Toaster] }).then((resolve) => {
+      //     console.log(resolve);
+      //   });
+      Reveal.initialize({
+        controls: true, // 是否显示左下角的控制键，默认为true
+        progress: true, // 是否显示进度条，默认为true
+        center: true, // 是否在中间显示，默认为true
+        markdown: {
+          smartypants: true,
+        },
+        transition: "convex", // none/fade/slide(default)/convex/concave/zoom
+        plugins: [RevealNotes, RevealMarkdown],
+      });
+    </script>
+
+    <!--四、异步初始化高德地图插件-->
+    <script>
+      //初始化地图插件
+      window.onload = function () {
+        var map = new AMap.Map("container", {
+          zoom: 15, //设置地图显示的缩放级别
+          center: [116.44927, 39.9584], //设置地图中心点坐标
+        });
+
+        // 创建一个 Marker 实例：（标记点）
+        var marker = new AMap.Marker({
+          position: new AMap.LngLat(116.44927, 39.9584), // 经纬度对象，也可以是经纬度构成的一维数组[116.39, 39.9]
+          title: "位置标题",
+        });
+
+        // 将创建的点标记添加到已有的地图实例：
+        map.add(marker);
+      };
+    </script>
+  </body>
+</html>

@@ -17,11 +17,12 @@
     <link rel="stylesheet" href="./css/index.css" />
 
     <!-- 引入markdown -->
-    <script src="./lib/reveal/plugin/markdown/markdown.js"></script>
+    <!-- <script src="./lib/reveal/plugin/markdown/markdown.js"></script> -->
     <!-- 引入数学方程式的插件MathJax -->
-    <script src="./lib/reveal/plugin/math/math.js"></script>
+    <!-- <script src="./lib/reveal/plugin/math/math.js"></script> -->
 
-    <link rel="stylesheet" href="./lib/reveal/plugin/highlight/monokai.css" />
+    <!-- <link rel="stylesheet" href="./lib/reveal/plugin/highlight/monokai.css" /> -->
+    <script src="./lib/reveal/plugin/"></script>
   </head>
   <body>
     <!-- reveal基本的js，里面集成了一些转场动画 -->
@@ -31,16 +32,16 @@
       <!-- 所有的幻灯片都放在一个类为slides的div中 -->
       <div class="slides">
         <!-- 每一个<section>块都生成一张单独ppt -->
-        <section>
+        <section data-transition="concave">
           <!-- ppt标题 -->
           <h6 class="ppt-title">社团纳新啦</h6>
           <!-- ppt正文 -->
           <!-- <div class="ppt-img">欢迎同学加入</div> -->
         </section>
         <!-- 第二页 -->
-        <section>
+        <section data-transition="concave">
           <!-- section中还可以包含section，放映的方式为向下放映 -->
-          <section data-background="#A3EDF9">
+          <section data-background="#A3EDF9" data-transition="concave">
             <h5>社团的活动内容</h5>
             <!-- fragment类表示分条显示，当键盘按下?键时触发 -->
             <p class="fragment"></p>
@@ -59,7 +60,7 @@
             </a>
           </section>
 
-          <section data-background="#D0F9A3">
+          <section data-background="#D0F9A3" data-transition="concave">
             <div style="margin: 0 auto">
               <div>忆江南</div>
               <div>【唐】白居易</div>
@@ -75,7 +76,7 @@
             </div>
           </section>
 
-          <section data-background="#dddddd">
+          <section data-background="#dddddd" data-transition="concave">
             <div>蝶恋花·春景</div>
             <div>【宋】苏轼</div>
             <div>花褪残红青杏小。</div>
@@ -87,7 +88,7 @@
             <div>笑渐不闻声渐悄。</div>
             <div>多情却被无情恼。</div>
           </section>
-          <section>
+          <section data-transition="concave">
             <img
               width="240"
               height="180"
@@ -104,9 +105,9 @@
           </section>
         </section>
         <!--第三页 -->
-        <section data-auto-animate>
+        <section data-auto-animate data-transition="concave">
           <h5 data-id="code-title">代码块</h5>
-          <section data-auto-animate>
+          <section data-auto-animate data-transition="concave">
             <pre
               data-id="code-animation"
             ><code class="hljs" data-trim data-line-numbers="|4,8-11|17|22-24">
@@ -157,8 +158,8 @@
           </section>
         </section>
         <!-- 第五页 -->
-        <section>
-          <section>
+        <section data-transition="concave">
+          <section data-transition="concave">
             <h6>媒体查询</h6>
             <video
               data-autoplay
@@ -166,7 +167,7 @@
             ></video>
           </section>
           <!-- 延迟加载 -->
-          <section>
+          <section data-transition="concave">
             <h6>延迟加载</h6>
             <iframe
               data-src="https://hakim.se"
@@ -177,12 +178,12 @@
           </section>
         </section>
         <!-- 第六页 -->
-        <section>
-          <section>
+        <section data-transition="concave">
+          <section data-transition="concave">
             <h6>markdown文件使用</h6>
             <p></p>
           </section>
-          <section data-markdown>
+          <section data-markdown data-transition="concave">
             <textarea data-template>
               ## Slide 1
               A paragraph with some text and a [link](http://hakim.se).
@@ -192,7 +193,7 @@
               ## Slide 3
             </textarea>
           </section>
-          <section data-markdown>
+          <section data-markdown data-transition="concave">
             <textarea data-template>
               ```js [1-2|3|4]
               let a = 1;
@@ -204,13 +205,35 @@
           </section>
         </section>
         <!-- 第七页 -->
-        <section>
-          <section>
+        <section data-transition="concave">
+          <section data-transition="concave">
             <h6>显示数学方程式</h6>
             <p>
               \[\begin{aligned} \dot{x} &amp; = \sigma(y-x) \\ \dot{y} &amp; =
               \rho x - y - xz \\ \dot{z} &amp; = -\beta z + xy \end{aligned} \]
             </p>
+          </section>
+        </section>
+        <!-- 第八页 -->
+        <section data-transition="concave">
+          <!-- 页面内部跳转 -->
+          <section data-transition="concave">
+            <a href="#/1">跳转到第一页</a>
+          </section>
+          <!-- 跳转到某一个的垂直分页 -->
+          <section data-transition="concave">
+            <a href="#/1/3">跳转到第一页下面的垂直第三页</a>
+          </section>
+          <section data-transition="concave">
+            <!-- 链接导航 -->
+            <button class="navigate-left">Left</button>
+            <button class="navigate-right">Right</button>
+            <button class="navigate-up">Up</button>
+            <button class="navigate-down">Down</button>
+            <!-- Previous vertical OR horizontal slide -->
+            <button class="navigate-prev">Prev</button>
+            <!-- Next vertical OR horizontal slide -->
+            <button class="navigate-next">Next</button>
           </section>
         </section>
       </div>
@@ -248,11 +271,12 @@
         // 幻灯片标号
         slideNumber: true,
         showSlideNumber: "print",
+        // 设置全局的背景转换
+        backgroundTransition: "convex",
       });
 
       // 每 3 秒自动播放
-      Reveal.configure({ autoSlide: 3000 });
-
+      //   Reveal.configure({ autoSlide: 3000 });
       //打印pdf格式
     </script>
   </body>
